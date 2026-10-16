@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pabuji: The Protector — A Phad-Inspired Game</title>
+  <meta name="description" content="An interactive retelling of the Act of Patan from the Rajasthani folk epic Pabuji ki Phad. Play as the legendary hero Pabuji, mounted on the black mare Kesar Kalami, as you protect cattle and face Mirza Khan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=MedievalSharp&family=UnifrakturMaguntia&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- INTRO SCROLL SCREEN -->
+  <div id="intro-screen" class="intro-screen">
+    <div class="scroll-container" id="scroll-container">
+      <div class="scroll-rod scroll-rod-top"></div>
+      <div class="scroll-body" id="scroll-body">
+        <div class="scroll-inner-content">
+          <div class="scroll-title-block">
+            <div class="scroll-subtitle-top">❋ राजस्थान की कथा ❋</div>
+            <h1 class="scroll-title">PABUJI</h1>
+            <div class="scroll-title-sub">THE PROTECTOR</div>
+            <div class="scroll-divider">⸻⸻⸻⸻⸻</div>
+            <p class="scroll-tagline">An interactive retelling of the Act of Patan<br/>from the Rajasthani folk epic <em>Pabuji ki Phad</em></p>
+            <div class="scroll-divider">⸻⸻⸻⸻⸻</div>
+            <button id="unfurl-btn" class="unfurl-button">
+              ✦ UNFURL THE STORY ✦
+            </button>
+            <div class="scroll-instructions">
+              <span>Move: A/D or ←/→</span>
+              <span>Jump: SPACE</span>
+              <span>Attack: J</span>
+              <span>Charge: K</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-rod scroll-rod-bottom"></div>
+    </div>
+    <div class="intro-bg-pattern"></div>
+  </div>
+
+  <!-- GAME CANVAS -->
+  <div id="game-wrapper" class="game-wrapper hidden">
+    <canvas id="game-canvas"></canvas>
+  </div>
+
+  <!-- ENDING SCREEN -->
+  <div id="ending-screen" class="ending-screen hidden">
+    <canvas id="ending-canvas"></canvas>
+    <div class="ending-overlay">
+      <div class="ending-box">
+        <div class="ending-title">पाबूजी</div>
+        <div class="ending-subtitle">PABUJI HAS FULFILLED HIS DUTY</div>
+        <div class="ending-divider">❋ ❋ ❋</div>
+        <p class="ending-text">"Through courage and sacrifice, Pabuji becomes remembered as a protector."</p>
+        <div class="ending-divider">⸻⸻⸻⸻⸻</div>
+        <div class="about-section">
+          <h2>About the Story</h2>
+          <p>This game is a contemporary interactive interpretation of the Act of Patan from the Pabuji epic.</p>
+          <p>The traditional Phad tradition combines painting, oral storytelling, music and performance.</p>
+          <p>Gameplay elements have been creatively adapted for this interactive experience and should not be taken as direct historical documentation.</p>
+        </div>
+        <div class="ending-buttons">
+          <button id="play-again-btn" class="ending-btn primary-btn">↺ PLAY AGAIN</button>
+          <button id="explore-btn" class="ending-btn secondary-btn">⚘ EXPLORE THE STORY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPLORE PANEL -->
+  <div id="explore-panel" class="explore-panel hidden">
+    <div class="explore-content">
+      <button id="explore-close" class="explore-close">✕</button>
+      <h2>Pabuji ki Phad</h2>
+      <p><strong>Pabuji</strong> is a legendary hero-deity of Rajasthan, revered especially among pastoral communities. His legend is told through the <em>Phad</em>, a large painted cloth scroll used by the Bhopa priest-performers as a backdrop for epic narration accompanied by the <em>Rāvaṇhattā</em> fiddle.</p>
+      <h3>The Phad Tradition</h3>
+      <p>Phad paintings are created by the Joshi family of painters in Bhilwara. The paintings use bold outlines and flat colours, depicting multiple episodes of the hero's life simultaneously across the scroll.</p>
+      <h3>Kesar Kalami</h3>
+      <p>The black mare Kesar Kalami is central to Pabuji's story. Her acquisition and the obligations it created form a key narrative thread in the epic.</p>
+      <h3>Creative Interpretation</h3>
+      <p>This game creatively adapts the Act of Patan for an interactive medium. Gameplay elements, enemy classes, and specific combat sequences are inventions of this project and not documented events from the traditional epic.</p>
+      <button id="explore-back" class="ending-btn primary-btn">← BACK</button>
+    </div>
+  </div>
+
+  <!-- JS modules -->
+  <script src="js/input.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/dialogue.js"></script>
+  <script src="js/cattle.js"></script>
+  <script src="js/enemy.js"></script>
+  <script src="js/boss.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

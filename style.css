@@ -1,0 +1,507 @@
+/* ============================================================
+   PABUJI: THE PROTECTOR — style.css
+   Phad-painting visual identity
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700&family=Tiro+Devanagari+Hindi&display=swap');
+
+/* ---- CSS Variables (Phad Palette) ---- */
+:root {
+  --terracotta:   #C1440E;
+  --ochre:        #C8860A;
+  --mustard:      #E2B33A;
+  --vermilion:    #E03C0A;
+  --cream:        #F5E6C8;
+  --aged-paper:   #EDD9A3;
+  --dark-green:   #2C5F2E;
+  --black:        #1A0A00;
+  --deep-indigo:  #2D2B6E;
+  --warm-red:     #8B1A10;
+  --scroll-bg:    #D4A96A;
+  --border-dark:  #3A1A00;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1A0A00;
+  font-family: 'Cinzel', serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================================================
+   INTRO SCREEN
+   ============================================================ */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #3D1C02 0%, #1A0A00 100%);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.intro-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(200,134,10,0.04) 30px, rgba(200,134,10,0.04) 60px),
+    repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(193,68,14,0.04) 30px, rgba(193,68,14,0.04) 60px);
+  pointer-events: none;
+}
+
+/* ---- Scroll Container ---- */
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatScroll 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes floatScroll {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ---- Scroll Rods ---- */
+.scroll-rod {
+  width: 520px;
+  height: 22px;
+  background: linear-gradient(180deg, #C8860A 0%, #8B5E0A 40%, #C8860A 70%, #6B4A00 100%);
+  border-radius: 11px;
+  border: 3px solid #3A1A00;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,220,100,0.3);
+  position: relative;
+}
+
+.scroll-rod::before,
+.scroll-rod::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle, #E2B33A, #8B5E0A);
+  border-radius: 50%;
+  border: 3px solid #3A1A00;
+}
+.scroll-rod::before { left: -10px; }
+.scroll-rod::after  { right: -10px; }
+
+/* ---- Scroll Body ---- */
+.scroll-body {
+  width: 500px;
+  background: linear-gradient(180deg, #EDD9A3 0%, #E8D090 50%, #EDD9A3 100%);
+  border-left: 8px solid #C8860A;
+  border-right: 8px solid #C8860A;
+  box-shadow: 0 0 40px rgba(200,134,10,0.3), inset 0 0 30px rgba(180,120,30,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: max-height 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 600px;
+}
+
+/* paper texture lines */
+.scroll-body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 28px,
+    rgba(150, 100, 20, 0.07) 28px,
+    rgba(150, 100, 20, 0.07) 29px
+  );
+  pointer-events: none;
+}
+
+.scroll-inner-content {
+  padding: 36px 40px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Scroll Title Block ---- */
+.scroll-subtitle-top {
+  text-align: center;
+  font-size: 13px;
+  color: var(--terracotta);
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  font-family: 'Cinzel', serif;
+}
+
+.scroll-title {
+  text-align: center;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 60px;
+  font-weight: 900;
+  color: var(--terracotta);
+  text-shadow:
+    2px 2px 0 var(--black),
+    -1px -1px 0 var(--black),
+    4px 4px 8px rgba(0,0,0,0.4);
+  line-height: 1;
+  letter-spacing: 4px;
+  margin-bottom: 4px;
+}
+
+.scroll-title-sub {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ochre);
+  letter-spacing: 10px;
+  margin-bottom: 16px;
+}
+
+.scroll-divider {
+  text-align: center;
+  color: var(--ochre);
+  font-size: 14px;
+  margin: 12px 0;
+  opacity: 0.8;
+}
+
+.scroll-tagline {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: var(--black);
+  line-height: 1.6;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+/* ---- Unfurl Button ---- */
+.unfurl-button {
+  display: block;
+  margin: 20px auto 16px;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--terracotta), var(--warm-red));
+  color: var(--cream);
+  border: 3px solid var(--black);
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--black), 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.1s, box-shadow 0.1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.unfurl-button::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.unfurl-button:hover::before {
+  transform: translateX(100%);
+}
+
+.unfurl-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 5px 0 var(--black), 0 12px 24px rgba(0,0,0,0.4);
+}
+
+.unfurl-button:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 var(--black);
+}
+
+/* ---- Scroll Instructions ---- */
+.scroll-instructions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--black);
+  opacity: 0.5;
+}
+
+/* ---- Scroll Unfurl Animation ---- */
+.scroll-unfurl-active .scroll-body {
+  max-height: 0;
+  transition: max-height 0.8s ease-in;
+}
+
+.scroll-unfurl-active .scroll-container {
+  animation: unfurlOut 1s ease-in-out forwards;
+}
+
+@keyframes unfurlOut {
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* ============================================================
+   GAME WRAPPER
+   ============================================================ */
+.game-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1A0A00;
+}
+
+#game-canvas {
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* ============================================================
+   ENDING SCREEN
+   ============================================================ */
+.ending-screen {
+  position: fixed;
+  inset: 0;
+  background: #1A0A00;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#ending-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ending-overlay {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(26,10,0,0.5);
+}
+
+.ending-box {
+  background: linear-gradient(180deg, #EDD9A3, #E8D090);
+  border: 4px solid #3A1A00;
+  border-radius: 4px;
+  padding: 40px 48px;
+  max-width: 560px;
+  width: 90%;
+  box-shadow: 6px 6px 0 #1A0A00, 0 20px 60px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.ending-title {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 48px;
+  color: var(--terracotta);
+  text-shadow: 2px 2px 0 var(--black);
+  margin-bottom: 4px;
+}
+
+.ending-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ochre);
+  margin-bottom: 12px;
+}
+
+.ending-divider {
+  color: var(--terracotta);
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.ending-text {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: var(--black);
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+
+.about-section {
+  background: rgba(26,10,0,0.06);
+  border: 1px solid var(--ochre);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.about-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.about-section p {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  color: var(--black);
+  line-height: 1.7;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.ending-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.ending-btn {
+  padding: 12px 28px;
+  border: 3px solid var(--black);
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--black);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--terracotta), var(--warm-red));
+  color: var(--cream);
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, var(--dark-green), #1a3d1c);
+  color: var(--cream);
+}
+
+.ending-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 5px 0 var(--black);
+}
+
+.ending-btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 var(--black);
+}
+
+/* ============================================================
+   EXPLORE PANEL
+   ============================================================ */
+.explore-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,10,0,0.9);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.explore-content {
+  background: linear-gradient(180deg, #EDD9A3, #E8D090);
+  border: 4px solid #3A1A00;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 8px 8px 0 #1A0A00;
+}
+
+.explore-content h2 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 24px;
+  color: var(--terracotta);
+  text-shadow: 1px 1px 0 var(--black);
+  margin-bottom: 20px;
+}
+
+.explore-content h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--ochre);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+}
+
+.explore-content p {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--black);
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.explore-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--terracotta);
+  color: var(--cream);
+  border: 2px solid var(--black);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--aged-paper); }
+::-webkit-scrollbar-thumb {
+  background: var(--terracotta);
+  border: 1px solid var(--black);
+}
